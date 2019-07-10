@@ -1,0 +1,9 @@
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+@lxterminal -e "/home/pi/vstream1.sh"
+@lxterminal -e "/home/pi/vstream2.sh"
+@lxterminal -e "/home/pi/vstream3.sh"
+@lxterminal -e "/home/pi/micstream.sh"
+@lxterminal -e "/home/pi/audiostream.sh"
+@xscreensaver -no-splash
+point-rpi
