@@ -1,0 +1,11 @@
+Pillow / PIL
+- pip install Pillow
+
+Paramiko
+- pip install paramiko
+
+Python-vlc
+- pip install python-vlc
+
+Tkinter
+- google
