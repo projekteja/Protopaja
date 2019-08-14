@@ -10,4 +10,8 @@ GITHUB Structure:
 
 Logo : Different designs for savox
 
+Commands : Python scripts for Raspberry pi
+
+Streams : VLC scripts for Raspberry pi
+
 ThrowCam : UserInterface and software to control the device
