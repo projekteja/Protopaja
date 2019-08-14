@@ -28,3 +28,7 @@ green
 5. Connect AUS : to send your own microphone feed to the device, you have to make sure have pressed the "CONNECT AUS" - button
 but DO NOT PRESS THIS BUTTON BEFORE PRESSING CONNECT SSH - BUTTON, THIS WILL CRASH THE PROGRAM, if the AUS (Audio upstream) was
 setup successfully the connection indicator will turn green
+
+!!!
+Check UI.png for visual instructions on how to use the UI
+!!!
