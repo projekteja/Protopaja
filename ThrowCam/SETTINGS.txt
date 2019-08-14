@@ -1,0 +1,10 @@
+FOR WIFI / WLAN:
+
+name = "SavoxPi"
+password = "SavoxProto2019"
+
+FOR SSH:
+
+server = "192.168.4.1" |server IP
+username = "pi" | username in server
+password = "SavoxProto2019" |usernames password
