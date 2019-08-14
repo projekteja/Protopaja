@@ -1,2 +1,13 @@
 # Protopaja
-Raspberry Pi with three cameras, three leds, a mic and a speaker.
+
+ThrowCam - Savox:
+
+Throwable camerasystem with 3 USB video cameras for watching surroundings, USB microphone for listening surrounding, accelerometer for sensing the angle of the device and 3 LEDs as attention lights 
+
+GITHUB Structure:
+
+3D-Model : STLs and Scad for the frame of the device
+
+Logo : Different designs for savox
+
+ThrowCam : UserInterface and software to control the device
