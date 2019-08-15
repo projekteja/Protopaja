@@ -503,7 +503,7 @@ class AUDIO_UPSTREAM_BUTTON(ttk.Frame):
         
         
     def connect_rasp(self):
-        stdin, stdout, stderr = self.client.exec_command('/home/pi/audiostream.sh')
+        stdin, stdout, stderr = self.client.exec_command('/home/pi/audiostream.py')
 
 
     def set_upstream(self):
