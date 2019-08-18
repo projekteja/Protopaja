@@ -503,7 +503,7 @@ class AUDIO_UPSTREAM_BUTTON(ttk.Frame):
         
         
     def connect_rasp(self):
-        stdin, stdout, stderr = self.client.exec_command('/home/pi/audiostream.py')
+        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/audiostream.py')
 
 
     def set_upstream(self):
@@ -511,7 +511,7 @@ class AUDIO_UPSTREAM_BUTTON(ttk.Frame):
         if self.check_state and self.stream == 0:
             self.status_color = "green"
 
-            subprocess.Popen("upstream.pyw", shell=True, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
+            subprocess.Popen('cvlc dshow://  --sout "#transcode{vcodec=none,acodec=mp3,ab=128,channels=2,samplerate=44100,scodec=none}:http{mux=mp3,dst=:8080/}"', shell=True, stdout = subprocess.PIPE, stderr = subprocess.PIPE)
             time.sleep(5)
             self.connect_rasp()
             #Set button color
