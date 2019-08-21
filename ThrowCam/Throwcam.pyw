@@ -204,10 +204,11 @@ class LED_BUTTONS(Tk.Frame):
     Setup and control LEDS
     """
 
-    def __init__(self, parent, client):
+    def __init__(self, parent, client, status):
         Tk.Frame.__init__(self, parent)
         self.parent = parent
         self.client = client
+        self.status = status
 
         #Setup buttons 
         LED_OFF  = ttk.Button(self, text="OFF", command=self.run_ledscript_off)
@@ -237,29 +238,34 @@ class LED_BUTTONS(Tk.Frame):
         
 
     def run_ledscript_off(self):
-        self.end_loops()
-        #run OFF script through SSH
-        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_off.py')
+        if self.status == 1:
+            self.end_loops()
+            #run OFF script through SSH
+            stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_off.py')
 
     def run_ledscript_on(self):
-        self.end_loops()
-        #run ON script through SSH
-        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_on.py')
+        if self.status == 1:
+            self.end_loops()
+            #run ON script through SSH
+            stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_on.py')
 
     def run_ledscript_1(self):
-        self.end_loops()
-        #run 1st script through SSH
-        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_mato.py')
+        if self.status == 1:
+            self.end_loops()
+            #run 1st script through SSH
+            stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_mato.py')
 
     def run_ledscript_2(self):
-        self.end_loops()
-        #run 2nd script through SSH
-        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_kummitus.py')
+        if self.status == 1:
+            self.end_loops()
+            #run 2nd script through SSH
+            stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_kummitus.py')
 
     def run_ledscript_3(self):
-        self.end_loops()
-        #run 3rd script through SSH
-        stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_disko.py')
+        if self.status == 1:
+            self.end_loops()
+            #run 3rd script through SSH
+            stdin, stdout, stderr = self.client.exec_command('python3 /home/pi/commands/led_disko.py')
         
 
 class Orientation_DSP(Tk.Frame):
@@ -434,7 +440,7 @@ class SSH_BUTTON(ttk.Frame):
         Tk.Frame.__init__(self, parent)
         self.parent = parent
         self.canvas = canvas
-        self.state = 0
+        self.state = 0 #set 0 when no SSH and 1 when connected
 
         #Sets the needed parametres:
         #server = server IP
@@ -554,7 +560,7 @@ class UI_INIT():
         #Setup buttons
         self.SSH = SSH_BUTTON(root, self.canvas)
         self.AU = AUDIO_UPSTREAM_BUTTON(root, self.canvas,self.SSH.client, self.SSH.state)
-        self.LED = LED_BUTTONS(root, self.SSH.client)
+        self.LED = LED_BUTTONS(root, self.SSH.client, self.SSH.state)
         self.ACCELEROMETER = Orientation_DSP(root, self.canvas, self.SSH.client)
         self.WIFI_SIGNAL = SIGNAL_BUTTON(root, self.canvas)
 
